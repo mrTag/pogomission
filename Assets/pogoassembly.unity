@@ -462,7 +462,7 @@ MonoBehaviour:
     m_Bits: 256
   SpringLength: 0.83
   MaxPushForce: 20000
-  PushExpo: 1
+  PushExpo: 2
 --- !u!114 &2041483065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,5 +474,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d394f4bd12d61d24eab7e2f3d2df4082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurningSpeed: 50
-  ReducedPushFactor: 0.5
+  TurningSpeed: -50
+  ReducedPushFactor: 0.3

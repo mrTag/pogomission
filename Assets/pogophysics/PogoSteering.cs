@@ -20,7 +20,7 @@ public class PogoSteering : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		_rigidbody.angularVelocity = Input.GetAxis("Horizontal") * TurningSpeed;
 		if(Input.GetButton("Fire1")) {
 			_pogopusher.MaxPushForce = _standardPogoPush * ReducedPushFactor;
