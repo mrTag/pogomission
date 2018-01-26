@@ -7,26 +7,26 @@ RequireComponent(typeof(PogoPusher))]
 public class PogoSteering : MonoBehaviour {
 
 	public float TurningSpeed;
-	public float ReducedPushFactor;
+	public float ReducedPushExpo;
 
 	private Rigidbody2D _rigidbody;
 	private PogoPusher _pogopusher;
-	private float _standardPogoPush;
+	private float _standardPogoExpo;
 
 	void Awake () {
 		_rigidbody = GetComponent<Rigidbody2D>();
 		_pogopusher = GetComponent<PogoPusher>();
-		_standardPogoPush = _pogopusher.MaxPushForce;
+		_standardPogoExpo = _pogopusher.PushExpo;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		_rigidbody.angularVelocity = Input.GetAxis("Horizontal") * TurningSpeed;
 		if(Input.GetButton("Fire1")) {
-			_pogopusher.MaxPushForce = _standardPogoPush * ReducedPushFactor;
+			_pogopusher.PushExpo = _standardPogoExpo * ReducedPushExpo;
 		}
 		else {
-			_pogopusher.MaxPushForce = _standardPogoPush;
+			_pogopusher.PushExpo = _standardPogoExpo;
 		}
 	}
 }
