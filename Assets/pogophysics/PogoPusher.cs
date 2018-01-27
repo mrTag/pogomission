@@ -12,10 +12,19 @@ public class PogoPusher : MonoBehaviour {
 	public float MaxPushForce = 10;
 	public float PushExpo = 2;
 
+	private float _startSpringLength;
+	private float _currentSpringLength;
+	public float CurrentSpringFactor {
+		get {
+			return _currentSpringLength / _startSpringLength;
+		}
+	}
+
 	private Rigidbody2D _rigidbody;
 
 	void Awake()
 	{
+		_startSpringLength = SpringLength;
 		_rigidbody = GetComponent<Rigidbody2D>();
 	}
 	
@@ -27,6 +36,7 @@ public class PogoPusher : MonoBehaviour {
 		var raycastHit = Physics2D.Raycast(worldSpaceStart, worldSpaceDir, SpringLength, CollisionLayerMask);
 
 		if(raycastHit){
+			_currentSpringLength = (raycastHit.point - worldSpaceStart).magnitude;
 			float distanceFactor = Mathf.Pow((1.0f - raycastHit.fraction), PushExpo);
 			_rigidbody.AddForceAtPosition(-worldSpaceDir * MaxPushForce * Time.fixedDeltaTime * distanceFactor, raycastHit.point);
 
@@ -34,6 +44,8 @@ public class PogoPusher : MonoBehaviour {
 			Vector2 perpNormal = new Vector2(-raycastHit.normal.y, raycastHit.normal.x);
 			Vector2 perpNormalVel = perpNormal * Vector2.Dot(velAtPogoTip, perpNormal);
 			_rigidbody.AddForceAtPosition(-perpNormalVel/(Time.fixedDeltaTime * 20), raycastHit.point);
+		} else {
+			_currentSpringLength = SpringLength;
 		}
 	}
 }

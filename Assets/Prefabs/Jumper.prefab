@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxTorque: 5000
-  MaxRotation: 15
+  MaxRotation: 17
   MaxPOffset: 10
   MaxDOffset: 5
   DAmount: 0.7
