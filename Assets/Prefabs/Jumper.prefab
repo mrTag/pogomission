@@ -149,7 +149,7 @@ MonoBehaviour:
   MaxPOffset: 10
   MaxDOffset: 5
   DAmount: 0.7
-  ReducedSpringLengthFactor: 0.5
+  ReducedSpringLengthFactor: 0.3
 --- !u!114 &114772271358196008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,9 +166,9 @@ MonoBehaviour:
   CollisionLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  SpringLength: 0.83
-  MaxPushForce: 150000
-  PushExpo: 2
+  SpringLength: 1
+  MaxPushForce: 70000
+  PushExpo: 1
 --- !u!212 &212777283635057428
 SpriteRenderer:
   m_ObjectHideFlags: 1

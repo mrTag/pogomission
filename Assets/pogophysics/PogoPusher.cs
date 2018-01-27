@@ -28,12 +28,12 @@ public class PogoPusher : MonoBehaviour {
 
 		if(raycastHit){
 			float distanceFactor = Mathf.Pow((1.0f - raycastHit.fraction), PushExpo);
-			_rigidbody.AddForceAtPosition(-worldSpaceDir * MaxPushForce * Time.fixedDeltaTime * distanceFactor, worldSpaceStart);
+			_rigidbody.AddForceAtPosition(-worldSpaceDir * MaxPushForce * Time.fixedDeltaTime * distanceFactor, raycastHit.point);
 
 			Vector2 velAtPogoTip = _rigidbody.GetPointVelocity(raycastHit.point);
 			Vector2 perpNormal = new Vector2(-raycastHit.normal.y, raycastHit.normal.x);
 			Vector2 perpNormalVel = perpNormal * Vector2.Dot(velAtPogoTip, perpNormal);
-			_rigidbody.AddForceAtPosition(-perpNormalVel/(Time.fixedDeltaTime * 10), raycastHit.point);
+			_rigidbody.AddForceAtPosition(-perpNormalVel/(Time.fixedDeltaTime * 20), raycastHit.point);
 		}
 	}
 }
