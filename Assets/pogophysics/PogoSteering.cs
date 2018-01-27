@@ -6,27 +6,27 @@ using UnityEngine;
 RequireComponent(typeof(PogoPusher))]
 public class PogoSteering : MonoBehaviour {
 
-	public float TurningSpeed;
-	public float ReducedPushFactor;
+	public float RotationOffset=10;
+	public float ReducedSpringLengthFactor;
 
 	private Rigidbody2D _rigidbody;
 	private PogoPusher _pogopusher;
-	private float _standardPogoPush;
+	private float _standardSpringLength;
 
 	void Awake () {
 		_rigidbody = GetComponent<Rigidbody2D>();
 		_pogopusher = GetComponent<PogoPusher>();
-		_standardPogoPush = _pogopusher.MaxPushForce;
+		_standardSpringLength = _pogopusher.SpringLength;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		_rigidbody.angularVelocity = Input.GetAxis("Horizontal") * TurningSpeed;
+		_rigidbody.rotation = Input.GetAxis("Horizontal") * RotationOffset;
 		if(Input.GetButton("Fire1")) {
-			_pogopusher.MaxPushForce = _standardPogoPush * ReducedPushFactor;
+			_pogopusher.SpringLength = _standardSpringLength * ReducedSpringLengthFactor;
 		}
 		else {
-			_pogopusher.MaxPushForce = _standardPogoPush;
+			_pogopusher.SpringLength = _standardSpringLength;
 		}
 	}
 }

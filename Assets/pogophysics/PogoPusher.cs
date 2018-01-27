@@ -26,9 +26,11 @@ public class PogoPusher : MonoBehaviour {
 		Debug.DrawLine(worldSpaceStart, worldSpaceStart + worldSpaceDir * SpringLength);
 		var raycastHit = Physics2D.Raycast(worldSpaceStart, worldSpaceDir, SpringLength, CollisionLayerMask);
 		if(raycastHit){
-			Debug.Log(raycastHit.fraction);
-			float factor = Mathf.Pow(raycastHit.fraction, PushExpo);
-			_rigidbody.AddForceAtPosition(-worldSpaceDir * MaxPushForce * Time.fixedDeltaTime, worldSpaceStart);
+			float distanceFactor = Mathf.Pow((1.0f - raycastHit.fraction), PushExpo);
+			float normalFactor = Mathf.Max(0, 90.0f - Vector2.Angle(-worldSpaceDir, raycastHit.normal)) / 90.0f;
+			normalFactor = Mathf.Pow(normalFactor, 4);
+			Debug.Log("norm: "+normalFactor+" dist: "+distanceFactor);
+			_rigidbody.AddForceAtPosition(-worldSpaceDir * MaxPushForce * Time.fixedDeltaTime * distanceFactor * normalFactor, worldSpaceStart);
 		}
 	}
 }
