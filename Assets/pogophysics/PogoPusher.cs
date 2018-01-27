@@ -25,12 +25,15 @@ public class PogoPusher : MonoBehaviour {
 		Vector2 worldSpaceDir = transform.TransformDirection(SpringDirection);
 		Debug.DrawLine(worldSpaceStart, worldSpaceStart + worldSpaceDir * SpringLength);
 		var raycastHit = Physics2D.Raycast(worldSpaceStart, worldSpaceDir, SpringLength, CollisionLayerMask);
+
 		if(raycastHit){
 			float distanceFactor = Mathf.Pow((1.0f - raycastHit.fraction), PushExpo);
-			float normalFactor = Mathf.Max(0, 90.0f - Vector2.Angle(-worldSpaceDir, raycastHit.normal)) / 90.0f;
-			normalFactor = Mathf.Pow(normalFactor, 4);
-			Debug.Log("norm: "+normalFactor+" dist: "+distanceFactor);
-			_rigidbody.AddForceAtPosition(-worldSpaceDir * MaxPushForce * Time.fixedDeltaTime * distanceFactor * normalFactor, worldSpaceStart);
+			_rigidbody.AddForceAtPosition(-worldSpaceDir * MaxPushForce * Time.fixedDeltaTime * distanceFactor, worldSpaceStart);
+
+			Vector2 velAtPogoTip = _rigidbody.GetPointVelocity(raycastHit.point);
+			Vector2 perpNormal = new Vector2(-raycastHit.normal.y, raycastHit.normal.x);
+			Vector2 perpNormalVel = perpNormal * Vector2.Dot(velAtPogoTip, perpNormal);
+			_rigidbody.AddForceAtPosition(-perpNormalVel/(Time.fixedDeltaTime * 10), raycastHit.point);
 		}
 	}
 }
