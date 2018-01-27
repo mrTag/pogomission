@@ -108,7 +108,125 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: base
+      takeName: base
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: jump
+      takeName: jump
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: man
+        weight: 1
+      - path: pogostick
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Hips
+        weight: 1
+      - path: Root/Hips/Spine
+        weight: 1
+      - path: Root/Hips/Spine/Chest
+        weight: 1
+      - path: Root/Hips/Spine/Chest/Upper_Chest
+        weight: 1
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Neck
+        weight: 1
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Neck/Head
+        weight: 1
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Neck/Head/Eye_L
+        weight: 1
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Neck/Head/Eye_R
+        weight: 1
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Shoulder_L
+        weight: 0
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Shoulder_L/UpperArm_L
+        weight: 0
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Shoulder_L/UpperArm_L/LowerArm_L
+        weight: 0
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Shoulder_L/UpperArm_L/LowerArm_L/Hand_L
+        weight: 0
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Shoulder_R
+        weight: 1
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Shoulder_R/UpperArm_R
+        weight: 1
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Shoulder_R/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Root/Hips/Spine/Chest/Upper_Chest/Shoulder_R/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Root/Hips/Upper_Leg_L
+        weight: 1
+      - path: Root/Hips/Upper_Leg_L/Lower_Leg_L
+        weight: 1
+      - path: Root/Hips/Upper_Leg_L/Lower_Leg_L/Foot_L
+        weight: 1
+      - path: Root/Hips/Upper_Leg_L/Lower_Leg_L/Foot_L/Toes_L
+        weight: 1
+      - path: Root/Hips/Upper_Leg_R
+        weight: 1
+      - path: Root/Hips/Upper_Leg_R/Lower_Leg_R
+        weight: 1
+      - path: Root/Hips/Upper_Leg_R/Lower_Leg_R/Foot_R
+        weight: 1
+      - path: Root/Hips/Upper_Leg_R/Lower_Leg_R/Foot_R/Toes_R
+        weight: 1
+      - path: Root/pogo_base
+        weight: 1
+      - path: Root/pogo_base/pogo_top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
