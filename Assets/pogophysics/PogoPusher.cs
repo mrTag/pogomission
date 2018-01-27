@@ -47,7 +47,13 @@ public class PogoPusher : MonoBehaviour {
 			_currentSpringLength = (raycastHit.point - worldSpaceStart).magnitude;
 			SpringVelocity = (lastSpringLength - _currentSpringLength) / Time.fixedDeltaTime;
 			float distanceFactor = Mathf.Pow((1.0f - raycastHit.fraction), PushExpo);
-			_rigidbody.AddForceAtPosition(-worldSpaceDir * MaxPushForce * Time.fixedDeltaTime * distanceFactor, raycastHit.point);
+			Vector2 force = -worldSpaceDir * MaxPushForce * Time.fixedDeltaTime * distanceFactor;
+            _rigidbody.AddForceAtPosition(force, raycastHit.point);
+
+            var otherRB = raycastHit.collider.GetComponent<Rigidbody2D>();
+            if (otherRB) {
+                otherRB.AddForceAtPosition(-force, raycastHit.point);
+            }
 
 			Vector2 velAtPogoTip = _rigidbody.GetPointVelocity(raycastHit.point);
 			Vector2 perpNormal = new Vector2(-raycastHit.normal.y, raycastHit.normal.x);

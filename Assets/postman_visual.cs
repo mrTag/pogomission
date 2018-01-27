@@ -6,6 +6,7 @@ public class postman_visual : MonoBehaviour {
 
 	public PogoPusher jumper;
 	public Animator PostManAnimator;
+	public Animator BagAnimator;
 	public Vector2 PivotOffset;
 
 	// Use this for initialization
@@ -18,6 +19,11 @@ public class postman_visual : MonoBehaviour {
 	void Update () {
 		PostManAnimator.Play("jump", -1, jumper.CurrentSpringFactor);
 		PostManAnimator.speed = 0;
+		BagAnimator.Play("jump", -1, jumper.CurrentSpringFactor);
+		BagAnimator.speed = 0;
 		transform.localPosition = PivotOffset + jumper.RelativeFloorOffset;
+
+		
+		
 	}
 }
