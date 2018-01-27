@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="210mm"
@@ -17,7 +18,44 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="environment.svg">
   <defs
-     id="defs4" />
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4449">
+      <stop
+         style="stop-color:#ff7777;stop-opacity:1"
+         offset="0"
+         id="stop4451" />
+      <stop
+         id="stop4457"
+         offset="0.06876785"
+         style="stop-color:#ff5656;stop-opacity:1" />
+      <stop
+         style="stop-color:#aa0000;stop-opacity:1"
+         offset="1"
+         id="stop4453" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4449"
+       id="linearGradient4455"
+       x1="319.28571"
+       y1="574.86222"
+       x2="351.62906"
+       y2="574.86224"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-45.709403,1.767767)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4449"
+       id="linearGradient4455-1"
+       x1="319.28571"
+       y1="574.86224"
+       x2="351.62906"
+       y2="574.86224"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-47.878791,-2.1862021)" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,9 +63,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="436.77409"
-     inkscape:cy="665.47219"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="306.01782"
+     inkscape:cy="507.47417"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -523,5 +561,19 @@
          id="path4327-7"
          inkscape:connector-curvature="0" />
     </g>
+    <rect
+       style="opacity:1;fill:url(#linearGradient4455);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4424"
+       width="62.142857"
+       height="87.85714"
+       x="273.57629"
+       y="532.70142" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient4455-1);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4424-1"
+       width="65.631348"
+       height="5.4221272"
+       x="271.40692"
+       y="528.74744" />
   </g>
 </svg>

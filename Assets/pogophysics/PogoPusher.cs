@@ -12,6 +12,12 @@ public class PogoPusher : MonoBehaviour {
 	public float MaxPushForce = 10;
 	public float PushExpo = 2;
 
+	public Vector2 RelativeFloorOffset {
+		get {
+			return SpringStartOffset + SpringDirection * _currentSpringLength;
+		}
+	}
+
 	private float _startSpringLength;
 	private float _currentSpringLength;
 	public float CurrentSpringFactor {
@@ -32,7 +38,7 @@ public class PogoPusher : MonoBehaviour {
 	void FixedUpdate () {
 		Vector2 worldSpaceStart = transform.TransformPoint(SpringStartOffset);
 		Vector2 worldSpaceDir = transform.TransformDirection(SpringDirection);
-		Debug.DrawLine(worldSpaceStart, worldSpaceStart + worldSpaceDir * SpringLength);
+		//Debug.DrawLine(worldSpaceStart, worldSpaceStart + worldSpaceDir * SpringLength);
 		var raycastHit = Physics2D.Raycast(worldSpaceStart, worldSpaceDir, SpringLength, CollisionLayerMask);
 
 		if(raycastHit){
