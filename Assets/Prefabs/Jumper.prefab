@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114772271358196008}
   - component: {fileID: 114441059101915938}
   - component: {fileID: 61030167756725392}
-  - component: {fileID: 114671057707828944}
+  - component: {fileID: 114281222868758642}
   m_Layer: 9
   m_Name: Jumper
   m_TagString: Untagged
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1019311616854768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.53, y: 1.74, z: 0}
+  m_LocalPosition: {x: -14.51, y: 1.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4112038579573154}
@@ -119,6 +119,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.34, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114281222868758642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1019311616854768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7dae5f0f7867941a33f50b29f1e435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VelocityAdvanceFactorX: 1
+  VelocityAdvanceFactorY: 0
+  MaxAdvanceDistance: 5
 --- !u!114 &114441059101915938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,21 +144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d394f4bd12d61d24eab7e2f3d2df4082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationOffset: -10
-  ReducedSpringLengthFactor: 0.5
---- !u!114 &114671057707828944
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1019311616854768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7dae5f0f7867941a33f50b29f1e435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VelocityAdvanceFactor: 0.5
-  MaxAdvanceDistance: 5
+  MaxTorque: 5000
+  MaxRotation: 17
+  MaxPOffset: 10
+  MaxDOffset: 5
+  DAmount: 0.7
+  ReducedSpringLengthFactor: 0.3
 --- !u!114 &114772271358196008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,9 +166,9 @@ MonoBehaviour:
   CollisionLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  SpringLength: 0.83
-  MaxPushForce: 150000
-  PushExpo: 2
+  SpringLength: 1
+  MaxPushForce: 70000
+  PushExpo: 1
 --- !u!212 &212777283635057428
 SpriteRenderer:
   m_ObjectHideFlags: 1
