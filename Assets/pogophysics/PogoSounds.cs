@@ -17,7 +17,6 @@ public class PogoSounds : MonoBehaviour {
 	}
 	
 	void Update () {
-		Debug.Log(_pusher.SpringVelocity);
 		if (Mathf.Abs(_pusher.SpringVelocity) > PlayVelocityThreshold) {
 			if (_pusher.SpringVelocity > 0f && !SpringDown.isPlaying) {
 				PlayDown();
@@ -29,7 +28,6 @@ public class PogoSounds : MonoBehaviour {
 	}
 
 	private void PlayDown() {
-		Debug.Log("down: " + _pusher.SpringVelocity);
 		SpringDown.clip = DownSounds[Random.Range(0, DownSounds.Length)];
 		SpringDown.pitch = Random.Range(.95f, 1.05f);
 		SpringDown.volume = Mathf.InverseLerp(0f, 15f, Mathf.Abs(_pusher.SpringVelocity));
