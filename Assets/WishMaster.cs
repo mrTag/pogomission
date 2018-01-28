@@ -17,8 +17,8 @@ public class WishMaster : MonoBehaviour {
 	}
 	private static WishMaster _instance;
 
-	public bool IsLoggedIn { get; private set; }
-	
+	public string PlayerName;
+	public string SelectedWishID;	
 	void Awake()
 	{
 		if (_instance == null) {
@@ -30,6 +30,7 @@ public class WishMaster : MonoBehaviour {
         }
 	}
 
+/* 
 	IEnumerator Start(){
 		Debug.Log("testing coroutine started! waiting 5 sec.");
 		yield return new WaitForSeconds(5);
@@ -50,7 +51,7 @@ public class WishMaster : MonoBehaviour {
 				Debug.Log(JsonUtility.ToJson(wish));
 			}
 		}, () => Debug.Log("errorcallback"));
-    }
+    } */
 
 	public void Login(System.Action successCallback, System.Action errorCallback) {
 		new GameSparks.Api.Requests.DeviceAuthenticationRequest().Send((response) =>

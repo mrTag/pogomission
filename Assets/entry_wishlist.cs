@@ -14,6 +14,7 @@ public class entry_wishlist : MonoBehaviour, IPointerClickHandler {
 	public Color ColorSelected;
 
 	private string wishID;
+	public string WishID {get{return wishID;}}
 	bool pIsFulfilled;
 
 	public event System.Action <entry_wishlist> EntrySelected = delegate {};
