@@ -8,6 +8,7 @@ public class CameraMan : MonoBehaviour {
 
     public CameraTarget Target;
     public float SmoothMinTime = .2f;
+    public float SmoothMinTimeZoom = .7f;
     public float MinOrthoSize = 5;
     public float MaxOrthoSize = 10;
     public float VelocityForMaxOrtho = 10;
@@ -25,7 +26,7 @@ public class CameraMan : MonoBehaviour {
         Application.targetFrameRate = 120;
         Cam = GetComponent<Camera>();
         _position = new SmoothDampedVector3(Target.PointOfInterest, SmoothMinTime);
-        _orthoSize = new SmoothDampedValue(MinOrthoSize, SmoothMinTime);
+        _orthoSize = new SmoothDampedValue(MinOrthoSize, SmoothMinTimeZoom);
         _positionLastFrame = transform.position;
     }
 
