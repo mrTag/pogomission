@@ -7,6 +7,10 @@ public class ui_enterwish : MonoBehaviour {
 
 	public InputField WishField;
 	public Button ButtonSendWish;
+
+	public System.Action<string> OnWishMade;
+	public System.Action OnOK;
+
 	public void CheckInputField () {
 		if (WishField.text == "") {
 			ButtonSendWish.interactable = false;
@@ -15,8 +19,23 @@ public class ui_enterwish : MonoBehaviour {
 		}
 	}
 	
-	public void PlayOnline () {
-		Debug.Log("Wish " + WishField.text);
-		this.gameObject.SetActive(false);
+	public void WishButton () {
+		ButtonSendWish.interactable = false;
+		WishMaster.Instance.MakeAWish(
+			WishField.text,
+			WishMaster.Instance.PlayerName,
+			(wishID) => {
+				this.gameObject.SetActive(false);
+				OnWishMade(wishID);
+			},
+			() => {
+				Debug.Log("MAKE WISH FAILED");
+				ButtonSendWish.interactable = true;
+			}
+		);
+	}
+
+	public void ImOKButton() {
+		OnOK();
 	}
 }
