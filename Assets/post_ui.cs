@@ -21,7 +21,7 @@ public class post_ui : MonoBehaviour {
 			
 		} else {
 			isOpen = true;
-			Manual.DOLocalMoveY(-50,1).SetEase(Ease.OutBack);
+			Manual.DOLocalMoveY(60,1).SetEase(Ease.OutBack);
 		}
 	}
 
