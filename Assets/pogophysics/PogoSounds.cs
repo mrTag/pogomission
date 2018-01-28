@@ -35,7 +35,6 @@ public class PogoSounds : MonoBehaviour {
 	}
 
 	private void PlayUp() {
-		//Debug.Log("up: " + _pusher.SpringVelocity);
 		SpringUp.clip = UpSounds[Random.Range(0, DownSounds.Length)];
 		SpringUp.pitch = Random.Range(.95f, 1.05f);
 		SpringUp.volume = Mathf.InverseLerp(0f, 15f, Mathf.Abs(_pusher.SpringVelocity));
