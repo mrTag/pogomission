@@ -22,7 +22,12 @@ public class Letter : MonoBehaviour {
 				MailboxFlag.GetComponent<AudioSource>().Play();
 			}).OnComplete(() => {
 				if (FinalTouch != null) {
-					FinalTouch.Done += () => { Delivered(); };
+					FinalTouch.Done += () => { 
+						Delivered();
+						if (WishMaster.Instance != null && !string.IsNullOrEmpty(WishMaster.Instance.SelectedWishID)) {
+                            WishMaster.Instance.FullfillWish(WishMaster.Instance.SelectedWishID, WishMaster.Instance.PlayerName);
+                        }
+					};
 					FinalTouch.gameObject.SetActive(true);
 				}
 			});
