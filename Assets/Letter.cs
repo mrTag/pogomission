@@ -12,20 +12,21 @@ public class Letter : MonoBehaviour {
 	public Rigidbody2D MailManRigidbody;
 	public Transform MailboxFlag;
 	public ParticleSystem LetterParticles;
-	public GameObject FinalTouch;
+	public delivery FinalTouch;
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other == MailboxCollider) {
 			Debug.Log("Letter Delivered");
 			MailManRigidbody.simulated = false;
-			Delivered();
 			MailboxFlag.DORotate(new Vector3(0f, 0f, -90f), 1.5f).SetDelay(1.5f).OnStart(() => {
 				MailboxFlag.GetComponent<AudioSource>().Play();
+			}).OnComplete(() => {
+				if (FinalTouch != null) {
+					FinalTouch.Done += () => { Delivered(); };
+					FinalTouch.gameObject.SetActive(true);
+				}
 			});
 			LetterParticles.Stop();
-			if (FinalTouch != null) {
-				//FinalTouch.SetActive(true);
-			}
 			gameObject.SetActive(false);
 		}
 	}
