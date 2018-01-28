@@ -436,6 +436,8 @@ GameObject:
   - component: {fileID: 4379381180528564}
   - component: {fileID: 33115713878196054}
   - component: {fileID: 23055667980584542}
+  - component: {fileID: 58238670673592778}
+  - component: {fileID: 114410442576247988}
   m_Layer: 0
   m_Name: envelope
   m_TagString: Untagged
@@ -1661,7 +1663,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325099728780768}
-  m_LocalRotation: {x: 0.71371585, y: -0.09244107, z: 0.6881192, w: -0.092500426}
+  m_LocalRotation: {x: 0.7137159, y: -0.092441075, z: 0.68811923, w: -0.09250043}
   m_LocalPosition: {x: 0.000000026921379, y: 0.0000000010193707, z: 0.24339244}
   m_LocalScale: {x: 1.0000005, y: 1.0000006, z: 1.0000002}
   m_Children: []
@@ -1902,6 +1904,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256909259500540}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &58238670673592778
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1404977881448620}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000009524822, y: -0.0049998118}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!95 &95496204718651682
 Animator:
   serializedVersion: 3
@@ -2013,6 +2030,22 @@ MonoBehaviour:
   BagAnimator: {fileID: 95929459105355320}
   PivotOffset: {x: 0, y: 1.4}
   PFX_Dust: {fileID: 198377895565540780}
+--- !u!114 &114410442576247988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1404977881448620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952ecdad4af1bdc47a08075e179f1e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MailboxCollider: {fileID: 0}
+  MailManRigidbody: {fileID: 0}
+  MailboxFlag: {fileID: 0}
+  LetterParticles: {fileID: 198463572294470712}
+  FinalTouch: {fileID: 0}
 --- !u!114 &114880449498445342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5650,7 +5683,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1677415015
+  randomSeed: 1605755247
   InitialModule:
     serializedVersion: 3
     enabled: 1
