@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 81732125268289726}
   - component: {fileID: 114488406197036628}
   - component: {fileID: 114300170729765622}
-  - component: {fileID: 114130784962995798}
   m_Layer: 0
   m_Name: CameraMan
   m_TagString: MainCamera
@@ -62,7 +61,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 1
   orthographic size: 5
@@ -88,18 +87,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1723347224835742}
   m_Enabled: 1
---- !u!114 &114130784962995798
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1723347224835742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 5aa0d1a8250ae174db61c0e422a0c9bf, type: 2}
 --- !u!114 &114300170729765622
 MonoBehaviour:
   m_ObjectHideFlags: 1
