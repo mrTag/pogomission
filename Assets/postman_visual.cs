@@ -8,6 +8,8 @@ public class postman_visual : MonoBehaviour {
 	public Animator PostManAnimator;
 	public Animator BagAnimator;
 	public Vector2 PivotOffset;
+	public ParticleSystem PFX_Dust;
+	private float particleThresholdVelocity = 6;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +25,10 @@ public class postman_visual : MonoBehaviour {
 		BagAnimator.speed = 0;
 		transform.localPosition = PivotOffset + jumper.RelativeFloorOffset;
 
-		
+		if (jumper.SpringVelocity >= particleThresholdVelocity) {
+
+			PFX_Dust.Emit(Mathf.FloorToInt((jumper.SpringVelocity-particleThresholdVelocity)*3));
+		}
 		
 	}
 }
