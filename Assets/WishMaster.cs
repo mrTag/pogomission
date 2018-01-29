@@ -18,7 +18,9 @@ public class WishMaster : MonoBehaviour {
 	private static WishMaster _instance;
 
 	public string PlayerName;
-	public string SelectedWishID;	
+	public string SelectedWishID;
+	public string SelectedWishName = "";
+	public string SelectedWishText = "";
 	void Awake()
 	{
 		if (_instance == null) {

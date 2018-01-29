@@ -41,12 +41,14 @@ public class CameraMan : MonoBehaviour {
                 _position.Current.y,
                 transform.position.z);
             
-            Vector3 vel = (transform.position - _positionLastFrame) / Time.deltaTime;
-            float speed = vel.magnitude;
-            _orthoSize.Target = MinOrthoSize + (MaxOrthoSize - MinOrthoSize) * Mathf.InverseLerp(VelocityForMinOrtho, VelocityForMaxOrtho, speed);
-            _orthoSize.DoUpdate();
-            Cam.orthographicSize = _orthoSize.Current;
-            _positionLastFrame = transform.position;
+            if (Time.timeScale > 0f) {
+                Vector3 vel = (transform.position - _positionLastFrame) / Time.deltaTime;
+                float speed = vel.magnitude;
+                _orthoSize.Target = MinOrthoSize + (MaxOrthoSize - MinOrthoSize) * Mathf.InverseLerp(VelocityForMinOrtho, VelocityForMaxOrtho, speed);
+                _orthoSize.DoUpdate();
+                Cam.orthographicSize = _orthoSize.Current;
+                _positionLastFrame = transform.position;
+            }
         }
     }
 }

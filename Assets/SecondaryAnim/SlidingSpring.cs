@@ -24,6 +24,7 @@ public class SlidingSpring : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Time.timeScale == 0f) return;
 		Vector3 localVelocity = transform.InverseTransformDirection(_lastFrameWorldPos - transform.position);
 		float velInAxis = Vector3.Dot(SlidingAxis, localVelocity) / Time.deltaTime;
 		float accel = (velInAxis - _lastFrameVelInAxis) / Time.deltaTime;

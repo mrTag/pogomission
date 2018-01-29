@@ -49,6 +49,8 @@ public class ui_wishlist : MonoBehaviour {
 
 	public void DeliverWish() {
 		WishMaster.Instance.SelectedWishID = CurrentSelection.WishID;
+		WishMaster.Instance.SelectedWishName = CurrentSelection.TextWisher.text;
+		WishMaster.Instance.SelectedWishText = CurrentSelection.TextWish.text;
 		OnWishDeliver();
 	}
 }

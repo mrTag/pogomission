@@ -36,6 +36,7 @@ public class RotatingSpring : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (Time.timeScale == 0f) return;
 		Profiler.BeginSample("RotatingSpring");
 		// influence from worldacceleration: the acceleration pulls
 		// us in the opposite direction
