@@ -14,7 +14,7 @@ public class ui_ending : MonoBehaviour {
 			WishText.text = WishMaster.Instance.SelectedWishText;
 			WishName.text = "by: " + WishMaster.Instance.SelectedWishName;
 		}
-		Letter.Delivered += Show;
+		Letter.AfterDelivery += Show;
 	}
 	
 	public void Show() {

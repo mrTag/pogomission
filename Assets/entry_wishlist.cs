@@ -25,15 +25,20 @@ public class entry_wishlist : MonoBehaviour, IPointerClickHandler {
 
 	private string wishID;
 	public string WishID {get{return wishID;}}
+	public string WishedBy { get; private set; }
+	public string FullfilledBy { get; private set; }
 	bool pIsFulfilled;
 
 	public event System.Action <entry_wishlist> EntrySelected = delegate {};
 
 	public void SetData(string pWishID, string pWish, string pWisher, string pFulfiller = "") {
 		wishID = pWishID;
+		WishedBy = pWisher;
+		FullfilledBy = pFulfiller;
 		TextWish.text = pWish;
 		TextWisher.text = "wished by: " + pWisher;
-		if (pFulfiller == "") {
+		pIsFulfilled = pFulfiller != "";
+		if (!pIsFulfilled) {
 			Img_Env_Closed.gameObject.SetActive(true);
 			Img_Env_Open.gameObject.SetActive(false);
 			TextDeliverer.text = "not delivered, yet";
@@ -42,13 +47,14 @@ public class entry_wishlist : MonoBehaviour, IPointerClickHandler {
 			Img_Env_Open.gameObject.SetActive(true);
 			TextDeliverer.text = "delivered by: " + pFulfiller;
 		}
+		SetSelectedState(false);
 	}
 
 	public void SetSelectedState(bool pIsSelected) {
 		Img_Entry.color = pIsSelected ? ColorSelected : ColorNormal;
 		for (int i = 0; i < Panels.Length; ++i) {
 			Panels[i].color = pIsSelected ?
-				(pIsFulfilled ? PanelColorFulfilled_s : PanelColorUnfulfilled) :
+				(pIsFulfilled ? PanelColorFulfilled_s : PanelColorUnfulfilled_s) :
 				(pIsFulfilled ? PanelColorFulfilled : PanelColorUnfulfilled);
 		}
 	}

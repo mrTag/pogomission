@@ -9,6 +9,7 @@ public class ui_wishlist : MonoBehaviour {
 	public GameObject MyWishBar;
 	public Transform MyWishPos;
 	public entry_wishlist Prefab_EntryWishlist;
+	public entry_wishlist Prefab_EntryMyWish;
 	public RectTransform WishListTransform;
 
 	public string OwnWishID;
@@ -21,13 +22,15 @@ public class ui_wishlist : MonoBehaviour {
 		Button_DeliverWish.interactable = false;
 		WishMaster.Instance.GetWishes((wishlist) => {
 			foreach(var wish in wishlist){
-				entry_wishlist NewEntry = Instantiate(Prefab_EntryWishlist);
-				NewEntry.EntrySelected += EntrySelected;
-				if(wish.WishID == OwnWishID){
+				entry_wishlist NewEntry;
+                if(wish.WishID == OwnWishID){
+					NewEntry = Instantiate(Prefab_EntryMyWish);
 					NewEntry.gameObject.transform.SetParent(MyWishPos,false);
 				} else {
+					NewEntry = Instantiate(Prefab_EntryWishlist);
 					NewEntry.gameObject.transform.SetParent(WishListTransform,false);
 				}
+				NewEntry.EntrySelected += EntrySelected;
 				
 				NewEntry.SetData(wish.WishID, wish.WishText, wish.WishingPlayer, wish.FullfillingPlayer);
 			}
@@ -49,7 +52,7 @@ public class ui_wishlist : MonoBehaviour {
 
 	public void DeliverWish() {
 		WishMaster.Instance.SelectedWishID = CurrentSelection.WishID;
-		WishMaster.Instance.SelectedWishName = CurrentSelection.TextWisher.text;
+		WishMaster.Instance.SelectedWishName = CurrentSelection.WishedBy;
 		WishMaster.Instance.SelectedWishText = CurrentSelection.TextWish.text;
 		OnWishDeliver();
 	}

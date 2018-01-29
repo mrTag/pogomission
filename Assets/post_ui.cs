@@ -26,7 +26,7 @@ public class post_ui : MonoBehaviour {
 			WisherNameText.text = "by: " + WishMaster.Instance.SelectedWishName;
 			WishText.text = WishMaster.Instance.SelectedWishText;
 		}
-		Letter.Delivered += () => {
+		Letter.AfterDelivery += () => {
 			finished = true;
 			if (isOpen) ToggleMenu();
 		};
@@ -55,8 +55,9 @@ public class post_ui : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.Return)) {
 				switch(_selection) {
 					case 0: ToggleMenu(); break;
-					case 1: ToggleManual(); break;
-					case 2: GiveUp(); break;
+					case 1: ResetGame(); break;
+					case 2: ToggleManual(); break;
+					case 3: GiveUp(); break;
 				}
 			}
 		}
@@ -75,6 +76,11 @@ public class post_ui : MonoBehaviour {
 			Menu.DOKill();
 			Menu.DOAnchorPosY(0,.5f).SetEase(Ease.OutBack).SetUpdate(true);
 		}
+	}
+
+	public void ResetGame() {
+		SceneManager.LoadScene("game");
+		Time.timeScale = 1.0f;
 	}
 
 	public void ToggleManual() {
