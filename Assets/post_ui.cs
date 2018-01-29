@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class post_ui : MonoBehaviour {
@@ -9,6 +10,7 @@ public class post_ui : MonoBehaviour {
 	public RectTransform Menu;
 	public GameObject Manual;
 	bool isOpen;
+	bool finished = false;
 
 	public RectTransform[] Buttons;
 	public RectTransform Selector;
@@ -24,9 +26,14 @@ public class post_ui : MonoBehaviour {
 			WisherNameText.text = "by: " + WishMaster.Instance.SelectedWishName;
 			WishText.text = WishMaster.Instance.SelectedWishText;
 		}
+		Letter.Delivered += () => {
+			finished = true;
+			if (isOpen) ToggleMenu();
+		};
 	}
 
 	void Update() {
+		if (finished) return;
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			if (Manual.activeSelf) {
 				ToggleManual();
@@ -75,6 +82,6 @@ public class post_ui : MonoBehaviour {
 	}
 
 	public void GiveUp() {
-
+		SceneManager.LoadScene("menu");
 	}
 }
